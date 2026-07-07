@@ -61,18 +61,6 @@
         "tags": ["App"]
       }
     },
-    "/random-number": {
-      "get": {
-        "operationId": "AppController_getRandomNumber",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "tags": ["App"]
-      }
-    },
     "/joke": {
       "get": {
         "operationId": "AppController_getJoke",
