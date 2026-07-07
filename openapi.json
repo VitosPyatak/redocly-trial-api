@@ -7,7 +7,14 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         },
         "tags": ["App"]
@@ -19,7 +26,23 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    },
+                    "uptime": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["status", "uptime"]
+                }
+              }
+            }
           }
         },
         "tags": ["App"]
@@ -31,7 +54,26 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "name": {
+                        "type": "string"
+                      }
+                    },
+                    "required": ["id", "name"]
+                  }
+                }
+              }
+            }
           }
         },
         "tags": ["App"]
@@ -43,7 +85,23 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "temperature": {
+                      "type": "number"
+                    },
+                    "condition": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["temperature", "condition"]
+                }
+              }
+            }
           }
         },
         "tags": ["App"]
@@ -55,19 +113,23 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": ""
-          }
-        },
-        "tags": ["App"]
-      }
-    },
-    "/random-number": {
-      "get": {
-        "operationId": "AppController_getRandomNumber",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "author": {
+                      "type": "string"
+                    },
+                    "text": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["author", "text"]
+                }
+              }
+            }
           }
         },
         "tags": ["App"]
@@ -79,7 +141,23 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "setup": {
+                      "type": "string"
+                    },
+                    "punchline": {
+                      "type": "string"
+                    }
+                  },
+                  "required": ["setup", "punchline"]
+                }
+              }
+            }
           }
         },
         "tags": ["App"]
@@ -91,7 +169,26 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "cpu": {
+                      "type": "number"
+                    },
+                    "memory": {
+                      "type": "number"
+                    },
+                    "requests": {
+                      "type": "number"
+                    }
+                  },
+                  "required": ["cpu", "memory", "requests"]
+                }
+              }
+            }
           }
         },
         "tags": ["App"]
