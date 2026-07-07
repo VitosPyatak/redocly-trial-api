@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -20,26 +20,42 @@ export class AppController {
   }
 
   @Get('users')
-  getUsers(): { id: number; name: string }[] {
+  getUsers(@Query('count') count?: string): { id: number; name: string }[] {
     const names = ['Alice', 'Bob', 'Charlie', 'Dana', 'Eve'];
-    const count = Math.floor(Math.random() * 5) + 1;
-    return Array.from({ length: count }, (_, i) => ({
+    const total = count
+      ? Math.max(1, parseInt(count, 10))
+      : Math.floor(Math.random() * 5) + 1;
+    return Array.from({ length: total }, (_, i) => ({
       id: i + 1,
       name: names[Math.floor(Math.random() * names.length)],
     }));
   }
 
+  @Get('users/:id')
+  getUserById(@Param('id') id: string): { id: number; name: string } {
+    const names = ['Alice', 'Bob', 'Charlie', 'Dana', 'Eve'];
+    return {
+      id: parseInt(id, 10),
+      name: names[Math.floor(Math.random() * names.length)],
+    };
+  }
+
   @Get('weather')
-  getWeather(): { temperature: number; condition: string } {
+  getWeather(@Query('city') city?: string): {
+    city: string;
+    temperature: number;
+    condition: string;
+  } {
     const conditions = ['sunny', 'cloudy', 'rainy', 'snowy', 'windy'];
     return {
+      city: city ?? 'Unknown',
       temperature: Math.floor(Math.random() * 40) - 5,
       condition: conditions[Math.floor(Math.random() * conditions.length)],
     };
   }
 
   @Get('quote')
-  getQuote(): { author: string; text: string } {
+  getQuote(@Query('author') author?: string): { author: string; text: string } {
     const quotes = [
       {
         author: 'Ada Lovelace',
@@ -54,12 +70,13 @@ export class AppController {
         text: "It's easier to ask forgiveness than permission.",
       },
     ];
-    return quotes[Math.floor(Math.random() * quotes.length)];
-  }
-
-  @Get('random-number')
-  getRandomNumber(): { value: number } {
-    return { value: Math.floor(Math.random() * 1000) };
+    const filtered = author
+      ? quotes.filter((quote) =>
+          quote.author.toLowerCase().includes(author.toLowerCase()),
+        )
+      : quotes;
+    const pool = filtered.length > 0 ? filtered : quotes;
+    return pool[Math.floor(Math.random() * pool.length)];
   }
 
   @Get('joke')
