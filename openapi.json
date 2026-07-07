@@ -28,7 +28,37 @@
     "/users": {
       "get": {
         "operationId": "AppController_getUsers",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "count",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": ["App"]
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "operationId": "AppController_getUserById",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": ""
@@ -40,7 +70,16 @@
     "/weather": {
       "get": {
         "operationId": "AppController_getWeather",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "city",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": ""
@@ -52,19 +91,16 @@
     "/quote": {
       "get": {
         "operationId": "AppController_getQuote",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": ""
+        "parameters": [
+          {
+            "name": "author",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
           }
-        },
-        "tags": ["App"]
-      }
-    },
-    "/random-number": {
-      "get": {
-        "operationId": "AppController_getRandomNumber",
-        "parameters": [],
+        ],
         "responses": {
           "200": {
             "description": ""
@@ -95,6 +131,69 @@
           }
         },
         "tags": ["App"]
+      }
+    },
+    "/products": {
+      "get": {
+        "operationId": "ProductsController_findAll",
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": ["Products"]
+      }
+    },
+    "/products/search": {
+      "get": {
+        "operationId": "ProductsController_search",
+        "parameters": [
+          {
+            "name": "q",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": ["Products"]
+      }
+    },
+    "/products/{id}": {
+      "get": {
+        "operationId": "ProductsController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": ["Products"]
       }
     }
   },
