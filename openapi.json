@@ -1,0 +1,117 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": ["App"]
+      }
+    },
+    "/status": {
+      "get": {
+        "operationId": "AppController_getStatus",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": ["App"]
+      }
+    },
+    "/users": {
+      "get": {
+        "operationId": "AppController_getUsers",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": ["App"]
+      }
+    },
+    "/weather": {
+      "get": {
+        "operationId": "AppController_getWeather",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": ["App"]
+      }
+    },
+    "/quote": {
+      "get": {
+        "operationId": "AppController_getQuote",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": ["App"]
+      }
+    },
+    "/random-number": {
+      "get": {
+        "operationId": "AppController_getRandomNumber",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": ["App"]
+      }
+    },
+    "/joke": {
+      "get": {
+        "operationId": "AppController_getJoke",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": ["App"]
+      }
+    },
+    "/metrics": {
+      "get": {
+        "operationId": "AppController_getMetrics",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": ["App"]
+      }
+    }
+  },
+  "info": {
+    "title": "Cats API Example",
+    "description": "The cats API description",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "cats",
+      "description": ""
+    }
+  ],
+  "servers": [],
+  "components": {
+    "schemas": {}
+  }
+}
